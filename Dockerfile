@@ -18,7 +18,7 @@ RUN /etc/init.d/postgresql start && psql --command "ALTER USER postgres PASSWORD
 USER root
 RUN echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/14/main/pg_hba.conf
 RUN echo "listen_addresses='*'" >> /etc/postgresql/14/main/postgresql.conf
-RUN /usr/local/bin/django-admin startproject django_firstt .
+RUN /usr/local/bin/django-admin startproject django_first .
 RUN python3 manage.py migrate
 RUN python3 manage.py createsuperuser --noinput --username admin --email django@mail.ru
 ENTRYPOINT ["sh", "/tmp/run.sh"]
